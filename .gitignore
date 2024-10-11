@@ -1,0 +1,7 @@
+# Ignore the Python virtual environment folder
+casaenv/
+
+# Other common things to ignore
+__pycache__/
+*.pyc
+db.sqlite3
