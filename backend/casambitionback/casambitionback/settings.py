@@ -40,7 +40,16 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'api',
+    #'rest_framework_simplejwt',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+AUTH_USER_MODEL = 'api.CustomUser'  
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -129,3 +138,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:4200',  # Autorise les requêtes de l'application Angular
 ]
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'saneb2580@gmail.com'
+EMAIL_HOST_PASSWORD = 'amzt thgj tjin olqj'  # Utilise un mot de passe d'application sécurisé
+DEFAULT_FROM_EMAIL = 'saneb2580@gmail.com'
+
+APPEND_SLASH = True
