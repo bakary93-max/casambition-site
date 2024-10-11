@@ -9,7 +9,11 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+import os
+from dotenv import load_dotenv
 
+# Charger les variables d'environnement depuis le fichier .env
+load_dotenv()
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -140,12 +144,12 @@ CORS_ORIGIN_WHITELIST = [
 ]
 
 
+APPEND_SLASH = True
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'saneb2580@gmail.com'
-EMAIL_HOST_PASSWORD = 'amzt thgj tjin olqj'  # Utilise un mot de passe d'application sécurisé
-DEFAULT_FROM_EMAIL = 'saneb2580@gmail.com'
-
-APPEND_SLASH = True
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER')
