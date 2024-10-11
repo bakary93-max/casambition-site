@@ -1,1 +1,53 @@
-<p>members works!</p>
+<div *ngIf="isAdmin">
+  <h2>Section réservée aux administrateurs</h2>
+  <!-- Formulaire pour ajouter un membre -->
+  <form (ngSubmit)="addMember()">
+    <div class="form-group">
+      <label for="name">Nom :</label>
+      <input type="text" id="name" name="name" [(ngModel)]="newMember.name" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+      <label for="role">Rôle :</label>
+      <input type="text" id="role" name="role" [(ngModel)]="newMember.role" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Ajouter un membre</button>
+  </form>
+</div>
+
+<!-- Autres contenus pour tous les membres -->
+<p>Bienvenue dans la section membres !</p>
+
+<!-- Formulaire pour devenir membre (accessible à tous) -->
+<h3>Devenir membre</h3>
+<form (ngSubmit)="becomeMember()">
+  <div class="form-group">
+    <label for="firstName">Prénom :</label>
+    <input type="text" id="firstName" name="firstName" [(ngModel)]="newMemberRequest.firstName" class="form-control" required />
+  </div>
+
+  <div class="form-group">
+    <label for="lastName">Nom :</label>
+    <input type="text" id="lastName" name="lastName" [(ngModel)]="newMemberRequest.lastName" class="form-control" required />
+  </div>
+
+  <div class="form-group">
+    <label for="address">Adresse postale :</label>
+    <input type="text" id="address" name="address" [(ngModel)]="newMemberRequest.address" class="form-control" required />
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Numéro de téléphone :</label>
+    <input type="text" id="phone" name="phone" [(ngModel)]="newMemberRequest.phone" class="form-control" required />
+  </div>
+
+  <button type="submit" class="btn btn-success">Envoyer la demande</button>
+</form>
+
+<!-- Liste des membres -->
+<ul class="list-group">
+  <li *ngFor="let member of members" class="list-group-item">
+    {{ member.name }} - {{ member.role }}
+  </li>
+</ul>

@@ -1,8 +1,26 @@
-<nav>
-  <a routerLink="/">Home</a> |
-  <a routerLink="/members">Members</a> |
-  <a routerLink="/projects">Projects</a> |
-  <a routerLink="/contact">Contact</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid d-flex justify-content-between">
+    <a class="navbar-brand" routerLink="/">Bienvenu sur le site de Casambition</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/members">Members</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">Se connecter</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<router-outlet></router-outlet>
+<div class="container mt-4">
+  <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer>
